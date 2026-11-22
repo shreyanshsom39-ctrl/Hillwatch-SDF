@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172d42">
+  <title>HillWatch | Himachal Flood Monitor</title>
+
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    defer>
+  </script>
+
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">
+    HILLWATCH
+    <small>HIMACHAL PRADESH</small>
+  </a>
+
+  <span class="status">
+    <i></i>
+    <b id="connection">CONNECTING</b>
+  </span>
+</header>
+
+<main>
+  <section class="intro">
+    <div>
+      <p class="eyebrow">FLASH FLOOD MONITOR · ENGINEERING PROJECT</p>
+      <h1>Mountain terrain.<br><em>Changing water.</em></h1>
+
+      <p class="lead">
+        Explore how rainfall, soil moisture, stream level and
+        steep slopes combine to influence flood risk across
+        Himachal Pradesh.
+      </p>
+    </div>
+
+    <aside>
+      <b>SIMULATED DATA</b>
+      <p>
+        This dashboard uses simulated readings and approximate
+        district locations. It is an educational prototype,
+        not an official flood warning.
+      </p>
+    </aside>
+  </section>
+
+  <section class="dashboard">
+
+    <article class="card readings">
+      <p class="eyebrow">01 / CATCHMENT READINGS</p>
+      <h2>District monitor</h2>
+
+      <label for="district">Choose a district</label>
+      <select id="district"></select>
+
+      <div class="place">
+        <span>⌖</span>
+        <div>
+          <b id="place-name">Loading...</b>
+          <small id="region">Waiting for data</small>
+        </div>
+      </div>
+
+      <div class="risk">
+        <div>
+          <small>DEMO RISK INDEX</small>
+          <b><span id="score">--</span><sup>/100</sup></b>
+        </div>
+        <strong id="level">LOADING</strong>
+      </div>
+
+      <div class="metric">
+        <span>Rain, last 3 hours</span>
+        <b><span id="rain">--</span> mm</b>
+        <div><i id="rain-bar"></i></div>
+      </div>
+
+      <div class="metric">
+        <span>Soil moisture</span>
+        <b><span id="soil">--</span>%</b>
+        <div><i id="soil-bar"></i></div>
+      </div>
+
+      <div class="metric">
+        <span>Stream level</span>
+        <b><span id="stream">--</span> m</b>
+        <div><i id="stream-bar"></i></div>
+      </div>
+
+      <div class="metric">
+        <span>Terrain slope</span>
+        <b><span id="slope">--</span>°</b>
+        <div><i id="slope-bar"></i></div>
+      </div>
+
+      <small class="updated">
+        Updated <time id="updated">--</time>
+      </small>
+    </article>
+
+    <article class="card map-card">
+      <div class="map-title">
+        <div>
+          <p class="eyebrow">02 / TERRAIN VIEW</p>
+          <h2>Himachal Pradesh</h2>
+        </div>
+
+        <div class="legend">
+          <span>● Selected risk</span>
+          <span>● Other districts</span>
+        </div>
+      </div>
+
+      <div id="map"
+        aria-label="Interactive map of Himachal Pradesh">
+      </div>
+
+      <div class="credit">
+        Topographic tiles © OpenTopoMap ·
+        © OpenStreetMap contributors / SRTM
+      </div>
+    </article>
+  </section>
+
+  <section class="bottom">
+    <p class="eyebrow">03 / ABOUT THIS PROJECT</p>
+
+    <p>
+      Topographic colors and contour lines represent the
+      landscape. Select a district or map marker to view its
+      simulated readings. Risk scores are educational estimates,
+      not measured flood probabilities or official warnings.
+    </p>
+  </section>
+</main>
+
+<footer>
+  EDUCATIONAL PROTOTYPE · NOT AN OFFICIAL FORECAST OR WARNING
+  <a href="/admin">HOST LOGIN</a>
+</footer>
+</body>
+</html>
